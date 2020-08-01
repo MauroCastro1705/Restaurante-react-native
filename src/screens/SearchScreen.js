@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../componentes/searchBar";
 import useResults from "../hooks/useResults";
 import ResulstList from "../componentes/resultsList";
@@ -23,10 +23,14 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text style={estilos.error}>{errorMessage}</Text> : null}
-      <Text>se encontraron {results.length} resultados</Text>
-      <ResulstList results={filterResultsByPrice("$")} title="Baratito" />
-      <ResulstList results={filterResultsByPrice("$$")} title="Moderado" />
-      <ResulstList results={filterResultsByPrice("$$$")} title="Picantes" />
+      <Text style={estilos.resultados}>
+        se encontraron {results.length} resultados
+      </Text>
+      <ScrollView>
+        <ResulstList results={filterResultsByPrice("$")} title="Baratito" />
+        <ResulstList results={filterResultsByPrice("$$")} title="Moderado" />
+        <ResulstList results={filterResultsByPrice("$$$")} title="Picantes" />
+      </ScrollView>
     </View>
   );
 };
@@ -34,7 +38,11 @@ const SearchScreen = () => {
 const estilos = StyleSheet.create({
   fondo: {
     backgroundColor: "white",
-    height: 800,
+    flex: 1,
+  },
+  resultados: {
+    alignSelf: "center",
+    marginVertical: 5,
   },
   error: {
     color: "red",
