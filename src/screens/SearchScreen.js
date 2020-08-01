@@ -23,7 +23,6 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text style={estilos.error}>{errorMessage}</Text> : null}
-      <Text>Search Screen</Text>
       <Text>se encontraron {results.length} resultados</Text>
       <ResulstList results={filterResultsByPrice("$")} title="Baratito" />
       <ResulstList results={filterResultsByPrice("$$")} title="Moderado" />
@@ -36,7 +35,6 @@ const estilos = StyleSheet.create({
   fondo: {
     backgroundColor: "white",
     height: 800,
-    paddingHorizontal: 15,
   },
   error: {
     color: "red",

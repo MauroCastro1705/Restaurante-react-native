@@ -23,9 +23,9 @@ const estilos = StyleSheet.create({
   fondo: {
     backgroundColor: "#F0EEEE", //#F0EEEE
     marginTop: 15,
-    height: 50,
+    height: 40,
     borderRadius: 5,
-    marginHorizontal: 15,
+    marginHorizontal: 10,
     flexDirection: "row",
   },
   inputStyle: {
@@ -35,7 +35,7 @@ const estilos = StyleSheet.create({
   icono: {
     fontSize: 35,
     alignSelf: "center",
-    marginHorizontal: 10,
+    marginHorizontal: 15,
   },
 });
 
