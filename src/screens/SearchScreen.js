@@ -1,32 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import SearchBar from "../componentes/searchBar";
-import yelp from "../api/yelp";
+import useResults from "../hooks/useResults";
+import ResulstList from "../componentes/resultsList";
 
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
-  const [results, setResults] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [searchApi, results, errorMessage] = useResults();
 
-  const searchApi = async (searchTerm) => {
-    try {
-      const response = await yelp.get("/search", {
-        params: {
-          limit: 50,
-          term: searchTerm,
-          location: "san jose",
-        },
-      });
-      setResults(response.data.businesses);
-    } catch (err) {
-      //agarra el error
-      setErrorMessage("Algo salio mal pá");
-    }
+  const filterResultsByPrice = (price) => {
+    //price === '$'
+    return results.filter((result) => {
+      return result.price === price;
+    });
   };
-
-  useEffect(() => {
-    searchApi("pasta");
-  }, []);
 
   return (
     <View style={estilos.fondo}>
@@ -37,7 +24,10 @@ const SearchScreen = () => {
       />
       {errorMessage ? <Text style={estilos.error}>{errorMessage}</Text> : null}
       <Text>Search Screen</Text>
-      <Text> se encontraron {results.length} resultados</Text>
+      <Text>se encontraron {results.length} resultados</Text>
+      <ResulstList results={filterResultsByPrice("$")} title="Baratito" />
+      <ResulstList results={filterResultsByPrice("$$")} title="Moderado" />
+      <ResulstList results={filterResultsByPrice("$$$")} title="Picantes" />
     </View>
   );
 };
@@ -46,6 +36,7 @@ const estilos = StyleSheet.create({
   fondo: {
     backgroundColor: "white",
     height: 800,
+    paddingHorizontal: 15,
   },
   error: {
     color: "red",
