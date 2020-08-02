@@ -30,6 +30,10 @@ const SearchScreen = () => {
         <ResulstList results={filterResultsByPrice("$")} title="Baratito" />
         <ResulstList results={filterResultsByPrice("$$")} title="Moderado" />
         <ResulstList results={filterResultsByPrice("$$$")} title="Picantes" />
+        <ResulstList
+          results={filterResultsByPrice("$$$$")}
+          title="Bien Chetos"
+        />
       </ScrollView>
     </View>
   );
