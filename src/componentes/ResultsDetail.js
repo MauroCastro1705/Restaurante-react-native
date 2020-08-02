@@ -7,7 +7,6 @@ const ResultsDetail = ({ result }) => {
       <Image style={estilos.imagen} source={{ uri: result.image_url }} />
       <Text style={estilos.nombre}> {result.name}</Text>
       <Text style={estilos.review}>
-        {" "}
         {result.rating} Estrellas, {result.review_count} Reseñas
       </Text>
     </View>
@@ -28,6 +27,7 @@ const estilos = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 14,
   },
+  review: {},
 });
 
 export default ResultsDetail;

@@ -20,9 +20,11 @@ const ResultsShowScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Text> {result.name} </Text>
+    <View style={estilos.fondo}>
+      <Text style={estilos.titulo}> {result.name} </Text>
       <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
         data={result.photos}
         keyExtractor={(photo) => photo}
         renderItem={({ item }) => {
@@ -35,8 +37,20 @@ const ResultsShowScreen = ({ navigation }) => {
 
 const estilos = StyleSheet.create({
   imagenes: {
-    height: 200,
+    height: 300,
     width: 300,
+    borderRadius: 5,
+    marginLeft: 10,
+  },
+  fondo: {
+    backgroundColor: "#fff4e3",
+    flex: 1,
+  },
+  titulo: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 15,
+    marginLeft: 15,
   },
 });
 

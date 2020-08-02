@@ -41,7 +41,7 @@ const SearchScreen = () => {
 
 const estilos = StyleSheet.create({
   fondo: {
-    backgroundColor: "white",
+    backgroundColor: "#fff4e3",
     flex: 1,
   },
   resultados: {
