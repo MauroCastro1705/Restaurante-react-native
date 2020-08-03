@@ -13,7 +13,7 @@ const navigator = createStackNavigator(
     initialRouteName: "Search",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#fff4e3",
+        backgroundColor: "#ffdd33",
         shadowColor: "white",
         elevation: 0,
       },
