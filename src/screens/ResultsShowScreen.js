@@ -53,8 +53,10 @@ const ResultsShowScreen = ({ navigation }) => {
           }}
         />
         <Text style={estilos.ubicacion}>Ubicacion</Text>
-        <Text style={estilos.ubicacionChild}>{result.location.address1}</Text>
-        <Text style={estilos.ubicacionChild}>{result.location.city}</Text>
+
+        <Text style={estilos.ubicacionAdress}>{result.location.address1}</Text>
+        <Text style={estilos.ubicacionAdress}>{result.location.city}</Text>
+
         <View
           style={{
             borderBottomColor: "lightgray",
@@ -135,6 +137,7 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 15,
     marginTop: -5,
     alignSelf: "center",
+    marginBottom: 12,
   },
   ubicacion: {
     fontWeight: "bold",
@@ -144,6 +147,7 @@ const estilos = StyleSheet.create({
     marginLeft: 10,
     marginTop: 5,
   },
+
   numero: {
     fontWeight: "bold",
     color: "blue",
